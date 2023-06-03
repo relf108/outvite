@@ -64,14 +64,14 @@ class Event {
             children: [
               FilledButton.tonal(
                 style: FilledButton.styleFrom(
-                  backgroundColor: Colors.green[200],
+                  backgroundColor: Color.fromARGB(255, 207, 255, 197),
                 ),
                 onPressed: () {},
                 child: const Icon(Icons.check_circle_outline_outlined),
               ),
               FilledButton.tonal(
                 style: FilledButton.styleFrom(
-                  backgroundColor: Colors.red[200],
+                  backgroundColor: Color.fromARGB(255, 250, 165, 216),
                 ),
                 onPressed: () {},
                 child: const Icon(Icons.cancel_outlined),
