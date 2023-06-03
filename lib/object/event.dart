@@ -1,3 +1,4 @@
+import 'package:outvite/const/standard_theming.dart';
 import 'package:outvite/object/abstract/attendee.dart';
 import 'package:flutter/material.dart';
 import 'package:outvite/object/user.dart';
@@ -39,17 +40,45 @@ class Event {
         'attendees': attendees
       };
 
-  Widget render(context) {
-    return Column(
-      children: [
-        Text(name, style: const TextStyle(fontSize: 20)),
-        Text("${host?.firstName} ${host?.lastName}", style: const TextStyle(),),
-        Text(location),
-        Text(startTime.toString()),
-        Text(endTime.toString()),
-        Text(description ?? ""),
-        for (Attendee attendee in attendees!) Text(attendee.toString())
-      ],
-    );
+  Widget render(context, {bool isInvite = false}) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Column(
+        children: [
+          Text(name, style: const TextStyle(fontSize: 20)),
+          Text(
+            "${host?.firstName} ${host?.lastName}",
+            style: const TextStyle(),
+          ),
+          Text(location),
+          Text(startTime.toString()),
+          Text(endTime.toString()),
+          Text(description ?? ""),
+          for (Attendee attendee in attendees!) Text(attendee.toString())
+        ],
+      ),
+      if (isInvite)
+        Container(
+          margin: EdgeInsets.only(
+              left: StandardMargins.widthPercent(context, percent: 0.125)),
+          child: Column(
+            children: [
+              FilledButton.tonal(
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.green[200],
+                ),
+                onPressed: () {},
+                child: const Icon(Icons.check_circle_outline_outlined),
+              ),
+              FilledButton.tonal(
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.red[200],
+                ),
+                onPressed: () {},
+                child: const Icon(Icons.cancel_outlined),
+              ),
+            ],
+          ),
+        )
+    ]);
   }
 }

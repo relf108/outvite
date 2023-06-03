@@ -23,5 +23,4 @@ class User {
         'name': firstName,
         'email': email,
       };
-
 }

@@ -5,7 +5,8 @@ import 'package:outvite/object/user.dart';
 
 class EventFeed extends StatefulWidget {
   final String endpoint;
-  const EventFeed({super.key, required this.endpoint});
+  final bool isInvite;
+  const EventFeed({super.key, required this.endpoint, this.isInvite = false});
 
   @override
   EventFeedState createState() => EventFeedState();
@@ -13,6 +14,7 @@ class EventFeed extends StatefulWidget {
 
 class EventFeedState extends State<EventFeed> {
   late String endpoint = widget.endpoint;
+  late bool isInvite = widget.isInvite;
   List<Event> events = [];
 
   void _addEvent(Event? newEvent) {
@@ -34,7 +36,7 @@ class EventFeedState extends State<EventFeed> {
               width: MediaQuery.of(context).size.width,
               child: Card(
                   child: Column(
-                children: [event.render(context)],
+                children: [event.render(context, isInvite: isInvite)],
               )))
       ],
     ));

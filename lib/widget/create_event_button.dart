@@ -11,7 +11,7 @@ class CreateEventButton extends StatelessWidget {
     return Container(
         alignment: Alignment.bottomCenter,
         width: MediaQuery.of(context).size.width,
-        margin: EdgeInsets.only(bottom: StandardMargins.fromBottom(context)),
+        margin: EdgeInsets.only(bottom: StandardMargins.heightPercent(context)),
         child: FilledButton.tonal(
           style: FilledButton.styleFrom(
             // backgroundColor: Theme.of(context).colorScheme.secondary,

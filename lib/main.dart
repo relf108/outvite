@@ -38,9 +38,7 @@ class OutviteState extends State<Outvite> {
             'Invites',
             Center(
                 child: Row(children: [
-              EventFeed(
-                endpoint: 'TODO/invites',
-              )
+              EventFeed(endpoint: 'TODO/invites', isInvite: true)
             ]))
           ],
           [
