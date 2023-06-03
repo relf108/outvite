@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:outvite/const/standard_theming.dart';
 import 'package:outvite/object/event.dart';
+import 'package:outvite/object/user.dart';
 
 class EventFeed extends StatefulWidget {
-  const EventFeed({super.key});
+  final String endpoint;
+  const EventFeed({super.key, required this.endpoint});
 
   @override
   EventFeedState createState() => EventFeedState();
 }
 
 class EventFeedState extends State<EventFeed> {
+  late String endpoint = widget.endpoint;
   List<Event> events = [];
 
   void _addEvent(Event? newEvent) {
@@ -31,15 +34,7 @@ class EventFeedState extends State<EventFeed> {
               width: MediaQuery.of(context).size.width,
               child: Card(
                   child: Column(
-                children: [
-                  Text(event.name),
-                  Text(event.location),
-                  Text(event.startTime.toString()),
-                  Text(event.endTime.toString()),
-                  Text(event.description ?? ""),
-                  for (var attendee in event.attendees ?? [])
-                    Text(attendee.toString())
-                ],
+                children: [event.render(context)],
               )))
       ],
     ));
@@ -50,7 +45,13 @@ class EventFeedState extends State<EventFeed> {
     super.initState();
     var events = [
       Event(
-          name: "Test Event",
+          name: endpoint,
+          host: User(
+            email: 'tristan.sutton@gmail.com',
+            firstName: 'Tristan',
+            lastName: 'Sutton',
+            dateOfBirth: DateTime(2001, 02, 12),
+          ),
           location: "Test Location",
           startTime: DateTime.now(),
           endTime: DateTime.now().add(const Duration(hours: 1)),

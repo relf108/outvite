@@ -1,6 +1,9 @@
 import 'package:outvite/object/abstract/attendee.dart';
+import 'package:flutter/material.dart';
+import 'package:outvite/object/user.dart';
 
 class Event {
+  User? host;
   String name;
   String location;
   DateTime startTime;
@@ -9,7 +12,8 @@ class Event {
   List<Attendee>? attendees;
 
   Event(
-      {required this.name,
+      {required this.host,
+      required this.name,
       required this.location,
       required this.startTime,
       this.endTime,
@@ -17,7 +21,8 @@ class Event {
       this.attendees});
 
   Event.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
+      : host = json['host'],
+        name = json['name'],
         description = json['description'],
         location = json['location'],
         startTime = json['startTime'],
@@ -25,6 +30,7 @@ class Event {
         attendees = json['attendees'];
 
   Map<String, dynamic> toJson() => {
+        'host': host,
         'name': name,
         'description': description,
         'location': location,
@@ -32,4 +38,18 @@ class Event {
         'endTime': endTime,
         'attendees': attendees
       };
+
+  Widget render(context) {
+    return Column(
+      children: [
+        Text(name, style: const TextStyle(fontSize: 20)),
+        Text("${host?.firstName} ${host?.lastName}", style: const TextStyle(),),
+        Text(location),
+        Text(startTime.toString()),
+        Text(endTime.toString()),
+        Text(description ?? ""),
+        for (Attendee attendee in attendees!) Text(attendee.toString())
+      ],
+    );
+  }
 }
