@@ -19,7 +19,7 @@ class OutviteState extends State<Outvite> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-          colorSchemeSeed: Color.fromARGB(255, 81, 26, 200),
+          colorSchemeSeed: const Color.fromARGB(255, 81, 26, 200),
           useMaterial3: true,
         ),
         home: const NavBar(items: [

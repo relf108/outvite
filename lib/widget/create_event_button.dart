@@ -17,12 +17,9 @@ class CreateEventButton extends StatelessWidget {
             StandardMargins.widthPercent(context, percent: 0.05),
             StandardMargins.heightPercent(context)),
         child: FloatingActionButton.extended(
-          // backgroundColor: Theme.of(context).primaryColor,
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const EventFeed(
-                      endpoint: 'TODO/hosting',
-                    )));
+            Navigator.of(context)
+                .push(Animations.transitionSlideUp(const EventFeed(endpoint: 'TODO/hosting')));
           },
           label: const Text(
             'Create Event',
