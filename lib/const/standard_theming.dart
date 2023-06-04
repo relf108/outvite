@@ -26,3 +26,8 @@ class StandardMargins {
     return MediaQuery.of(context).size.width * percent;
   }
 }
+
+class AdditionalColours {
+  static const Color accept = Color.fromARGB(150, 61, 194, 119);
+  static const Color decline = Color.fromARGB(150, 194, 61, 136);
+}

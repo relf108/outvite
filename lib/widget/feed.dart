@@ -35,7 +35,7 @@ class EventFeedState extends State<EventFeed> {
                   : EdgeInsets.zero,
               width: MediaQuery.of(context).size.width,
               child: Card(
-                color: Theme.of(context).colorScheme.primaryContainer,
+                color: Theme.of(context).cardColor,
                   child: Column(
                 children: [event.render(context, isInvite: isInvite)],
               )))

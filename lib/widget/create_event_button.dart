@@ -9,24 +9,25 @@ class CreateEventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.bottomCenter,
+        alignment: Alignment.bottomRight,
         width: MediaQuery.of(context).size.width,
-        margin: EdgeInsets.only(bottom: StandardMargins.heightPercent(context)),
-        child: FilledButton.tonal(
-          style: FilledButton.styleFrom(
-            // backgroundColor: Theme.of(context).colorScheme.secondary,
-            minimumSize: Size(MediaQuery.of(context).size.width * 0.9,
-                MediaQuery.of(context).size.height * 0.1),
-          ),
+        margin: EdgeInsets.fromLTRB(
+            0,
+            0,
+            StandardMargins.widthPercent(context, percent: 0.05),
+            StandardMargins.heightPercent(context)),
+        child: FloatingActionButton.extended(
+          // backgroundColor: Theme.of(context).primaryColor,
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const EventFeed(
                       endpoint: 'TODO/hosting',
                     )));
           },
-          child: Text('Create Event',
-              style: TextStyle(
-                  fontSize: 25, color: Theme.of(context).colorScheme.primary)),
+          label: const Text(
+            'Create Event',
+          ),
+          icon: const Icon(Icons.add),
         ));
   }
 }
