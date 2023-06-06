@@ -24,7 +24,7 @@ class OutviteState extends State<Outvite> {
         ),
         home: const NavBar(items: [
           [
-            Icon(Icons.face_2_outlined),
+            Icon(Icons.celebration_outlined),
             'Attending',
             Center(
                 child: Row(
@@ -57,7 +57,7 @@ class OutviteState extends State<Outvite> {
             ]),
           ],
           [
-            Icon(Icons.brightness_5_sharp),
+            Icon(Icons.face_2_outlined),
             'Profile',
             Center(child: Text('Profile'))
           ],
