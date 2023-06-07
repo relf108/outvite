@@ -31,14 +31,14 @@ class EventFeedState extends State<EventFeed> {
         for (Event event in events)
           Container(
               margin: (events.indexOf(event) != 0)
-                  ? StandardMargins.columnMargin(context)
+                  ? StandardMargins.columnItemMargin(context)
                   : EdgeInsets.zero,
               width: MediaQuery.of(context).size.width,
               child: Card(
-                color: Theme.of(context).cardColor,
+                  color: Theme.of(context).cardColor,
                   child: Column(
-                children: [event.render(context, isInvite: isInvite)],
-              )))
+                    children: [event.render(context, isInvite: isInvite)],
+                  )))
       ],
     ));
   }

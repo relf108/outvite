@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StandardMargins {
-  static edgeInsets(BuildContext context) {
+  static topLevelMargin(BuildContext context) {
     return EdgeInsets.fromLTRB(
         widthPercent(context),
         heightPercent(context, percent: 0.05),
@@ -9,7 +9,7 @@ class StandardMargins {
         heightPercent(context));
   }
 
-  static columnMargin(BuildContext context) {
+  static columnItemMargin(BuildContext context) {
     return EdgeInsets.fromLTRB(
       0,
       heightPercent(context, percent: 0.01),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:outvite/widget/create_event_button.dart';
-import 'package:outvite/widget/feed.dart';
+import 'package:outvite/view/feed.dart';
 import 'package:outvite/widget/nav.dart';
 
 void main() {

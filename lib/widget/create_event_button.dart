@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:outvite/view/event_creator.dart';
 import '../const/standard_theming.dart';
-import 'feed.dart';
 
 class CreateEventButton extends StatelessWidget {
   const CreateEventButton({super.key});
@@ -19,7 +18,7 @@ class CreateEventButton extends StatelessWidget {
         child: FloatingActionButton.extended(
           onPressed: () {
             Navigator.of(context)
-                .push(Animations.transitionSlideUp(const EventFeed(endpoint: 'TODO/hosting')));
+                .push(Animations.transitionSlideUp(const EventCreator()));
           },
           label: const Text(
             'Create Event',
