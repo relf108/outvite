@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:outvite/widget/datetime_picker.dart';
 import 'package:outvite/widget/timeofday_picker.dart';
 
@@ -22,6 +21,7 @@ class EventCreatorState extends State<EventCreator> {
   final _locationController = TextEditingController();
   final _descriptionController = TextEditingController();
 
+  //Start Date and Times
   DateTime _startDate = DateTime(0);
   TimeOfDay _startTime = const TimeOfDay(hour: 0, minute: 0);
 
@@ -37,6 +37,7 @@ class EventCreatorState extends State<EventCreator> {
     });
   }
 
+  // End Date and Times
   DateTime _endDate = DateTime(0);
   TimeOfDay _endTime = const TimeOfDay(hour: 0, minute: 0);
 
@@ -52,10 +53,16 @@ class EventCreatorState extends State<EventCreator> {
     });
   }
 
+  void submitEvent() {
+    // TODO validate input and submit event to backend
+    return Navigator.pop(context);
+  }
+
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     _titleController.dispose();
+    _locationController.dispose();
+    _descriptionController.dispose();
     super.dispose();
   }
 
@@ -98,15 +105,7 @@ class EventCreatorState extends State<EventCreator> {
               Container(
                   alignment: Alignment.bottomRight,
                   child: FloatingActionButton.extended(
-                    onPressed: () {
-                      if (_titleController.text.isNotEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                              content: Text(
-                                  'Processing Data ${_titleController.text}')),
-                        );
-                      }
-                    },
+                    onPressed: submitEvent,
                     label: const Text(
                       'Create Event',
                     ),
